@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./static/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+	<meta charset="utf-8">
+	<!--<script src="./static/script.js" defer></script>-->
+</head>
+<body>
+<!--	<header>-->
+<!--		<img src="./static/adn.jpg" width="150px">-->
+<!--	</header>-->
+
+<!--	<button id="btn">☰</button>
+	
+        <nav id="nav">
+            <ul> 
+            	<li> <a href="https://www.linkedin.com/company/adncorp/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                <li> <a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+				<li> <a href="" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<li> <a href="" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+				<li> <a href="" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+            </ul>
+        </nav>
+      -->
+    <h1 id="title" align="center">Credit Scoring Model </br>With Machine Learning </h1>
+
+	<div class="desc" align="center">
+		<ul>
+			<li class="btn"><a href="{{url_for('index')}}">Analyse</a></li>
+			<li class="btn"><a href="{{url_for('news')}}">Decription</a></li>
+			<li class="btn"><a href="{{url_for('index')}}">Contact</a></li>
+		</ul>
+	</div>
+
+<div id="centrage">	
+	<section>
+	
+					<form method="POST" action="{{url_for('analyze')}}" class="form">
+						<div class="input-field">
+							<p> <label>ApplicantIncome:</label>  
+								<input type="number" id="ApplicantIncomeInput" min="100" max="7000000" step="50" value="" name="ApplicantIncome">
+							</p>
+						</div>
+
+						<div class="input-field">
+							<p>	<label>CoapplicantIncome:</label>
+								<input type="number" id="CoapplicantIncomeInput" min="100" max="7000000" value="" step="50" name="CoapplicantIncome">
+							</p>
+						</div>
+
+						<div class="input-field">
+							<p>	<label>LoanAmount:</label>
+								<input type="number" id="LoanAmountInput" min="0" max="7000000" step="10" value="" name="LoanAmount">
+							</p>
+						</div>
+
+						<div class="input-field">
+							<p>	<label>Loan_Amount_Term:</label>
+								<input type="number" id="Loan_Amount_Term Input" min="0" max="7000000" step="50" value="" name="Loan_Amount_Term">
+							</p>
+						</div>
+						<!-- New -->
+						<div>
+							<p>Credit_History: <label for="Credit_History"><select id="styledSelect1" name="Credit_History">
+							     <option value="">
+							        Select
+							     </option>
+							     <option value="1.0">
+							        1.0
+							     </option>
+							     <option value="0.0">
+							        0.0
+							     </option>
+							    </select></label>
+							</p>
+
+							<p>Gender: <label for="Gender"><select id="styledSelect1" name="Gender">
+							     <option value="">
+							        Select
+							     </option>
+							     <option value="Male">
+							        Male
+							     </option>
+							     <option value="Male">
+							        Female
+							     </option>
+							    </select></label>
+								</p>
+						</div>
+
+						<div>
+							<p>Married: <label for="Married"><select id="styledSelect1" name="Married">
+							     <option value="">
+							        Select
+							     </option>
+							     <option value="Yes">
+							        Yes
+							     </option>
+							     <option value="No">
+							        No
+							     </option>
+							    </select></label>
+								</p>
+						</div>
+
+						<div>
+							<p>Dependents: <label for="Dependents"><select class="styledSelect1" name="Dependents">
+							     <option value="">
+							        Select
+							     </option>
+							     <option value="1">
+							        0
+							     </option>
+							     <option value="2">
+							        1
+							     </option>
+							     <option value="2">
+							        2
+							     </option>
+							     <option value="3+">
+							        3+
+							     </option>
+							    </select></label>
+								</p>
+						</div>
+
+						<div>
+							<p>Education: <label for="Education"><select class="styledSelect1" name="Education">
+							     <option value="">
+							        Select
+							     </option>
+							     <option value="Graduate">
+							        Graduate
+							     </option>
+							     <option value="Not Graduate">
+							        Not Graduate
+							     </option>
+							    </select></label>
+								</p>
+						</div>
+
+ 						<div>
+							<p>Self_Employed: <label for="Self_Employed"><select class="styledSelect1" name="Self_Employed">
+							     <option value="">
+							        Select
+							     </option>
+							     <option value="No">
+							        No
+							     </option>
+							     <option value="Yes">
+							        Yes
+							     </option>
+							    </select></label>
+								</p>
+						</div>
+
+						<div>
+							<p>Property_Area: <label for="Property_Area"><select class="styledSelect1" name="Property_Area">
+							     <option value="">
+							        Select
+							     </option>
+							     <option value="Rural">
+							        Rural
+							     </option>
+							     <option value="Semiurban">
+							        Semiurban
+							     </option>
+							     <option value="Urban">
+							        Urban
+							     </option>
+							    </select></label>
+								</p>
+						</div>
+						<div class="input-field">
+							<p>	<label>Select ML Algorithm:</label>
+								<select id="role" name="model_choice">
+									<option value="" disabled selected>Select Model</option>
+									<option value="logitmodel">Logistic Regression</option>
+									<option value="knnmodel">K-nearest Model</option>
+									<option value="svmmodel">SVM Model</option>
+								</select>	
+							</p>
+						</div>
+						<div class='btn-submit'>
+							<input type="submit" value="Predict" class="btn">
+							<input type="reset" value="clear" class="btn">
+						</div>
+						<div>
+							<h5 class="pred">Prediction:</h5>
+							<div class="pre">
+
+			                  {% if result_prediction == 1 %}
+			                    <p><strong>insolvent</strong></p>
+			                  {% elif result_prediction == 0 %}
+			                    <p><strong>Solvable</strong></p>    
+			                  {% else %}
+			                    <p></p>
+			                  {% endif%}
+               				</div>
+						</div>
+					</form>
+				</div>
+			</div>		
+	</section>
+</div>
+	<!--
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/q7b3KU374Nc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+	       <!-- Compiled and minified JavaScript -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/ materialize.min.js"></script> -->
+
+	<div id="pied">
+		<!--<p>This is a footer</p>-->
+		<ul>
+			<li> <a href="#" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+			<li> <a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+			<li> <a href="" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+			<li> <a href="" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+			<!--  <li><img src="image/laptop.png"><a href="https://github.com/"></a></li> -->
+			<!--<li> <a href="https://github.com/" target="_blank"><img src="image/laptop.png" width=60px height=60px></a></li> -->
+
+			<!-- target='_blank' c'est pour ouvrir une nouvelle page quand on click sur le lien. -->
+		</ul>
+	</div> 
+	<footer>
+		<div>
+			<p>&copy; 2020 Idriss TONDJI</p>
+		</div> <!-- &copy; c'est pour ajouter le logo de copyright que tu vois en bas de page  -->
+	</footer>
+</body>
+</html>
