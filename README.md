@@ -1,1 +1,1 @@
-# App-Credit-Scoring
+# Credit Scoring Mini-application
